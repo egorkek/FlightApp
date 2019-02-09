@@ -1,0 +1,29 @@
+.Flight{
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr 2fr;
+    grid-gap: 10px;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0,0,0, 0.7);
+    transition: box-shadow 0.5s ease-in-out;
+
+}
+.Flight:hover{
+    box-shadow: 3px 3px 10px rgba(0,0,0, 0.7);
+
+
+}
+
+@media (max-width: 600px) {
+    .Flight p {
+        font-size: 10px;
+
+    }
+    .Flight h1{
+        font-size: 11px;
+    }
+
+}

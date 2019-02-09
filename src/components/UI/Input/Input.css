@@ -1,0 +1,15 @@
+input{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    outline: none;
+    margin-bottom: 15px;
+
+}
+input:hover{
+    outline: none;
+}
+input:focus{
+    outline: none;
+
+}

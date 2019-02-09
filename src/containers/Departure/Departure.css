@@ -1,0 +1,11 @@
+.Departure{
+    text-align: center;
+}
+.Departure .Tab{
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr 2fr;
+    grid-gap: 10px;
+    align-items: center;
+    padding: 10px;
+}
+

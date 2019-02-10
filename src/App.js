@@ -84,7 +84,7 @@ class App extends Component {
     return (
         <Layout>
             <div className={classes.App}>
-                <h1>Flight display</h1>
+                <h1>Flight display Vnukovo</h1>
                 <form>
                     <Input value={this.state.myForm.carrier} placeholder={'enter airline code'} onChange={(e)=>this.onChangeInputHandler(e, 'carrier')}/>
                     <Input value={this.state.myForm.flightNumber} type={'number'} onChange={(e)=>this.onChangeInputHandler(e, 'flightNumber')} placeholder={'enter flight number'} />

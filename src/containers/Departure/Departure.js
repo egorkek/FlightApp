@@ -30,7 +30,10 @@ class Departure extends React.Component{
                     time: obj.departureDate.dateLocal.slice(11, 16),
                     city: `${city}(${obj.arrivalAirportFsCode})`,
                     terminal: obj.airportResources.departureTerminal,
-                    flightNumber: obj.carrierFsCode +obj.flightNumber
+                    flightNumber: obj.carrierFsCode +obj.flightNumber,
+                    delayed: !!obj.delays
+                    // delayed: obj.operationalTimes.scheduledGateDeparture.dateLocal !== obj.operationalTimes.publishedDeparture.dateLocal
+
                 })
 
             })
@@ -55,7 +58,7 @@ class Departure extends React.Component{
     renderFlights = ()=>{
         return this.state.flights.map((flight, index)=>{
             return(
-                <Flight time={flight.time} city={flight.city} terminal={flight.terminal} key={index} flightNumber={flight.flightNumber}/>
+                <Flight delayed={flight.delayed} time={flight.time} city={flight.city} terminal={flight.terminal} key={index} flightNumber={flight.flightNumber}/>
             )
 
         })

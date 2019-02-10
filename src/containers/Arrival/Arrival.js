@@ -15,7 +15,6 @@ class Arrival extends React.Component{
             const response = await axios.get(`https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/VKO/arr/${time}?appId=0d1b066d&appKey=04e621b80655d6d251102e55583f8977&utc=false&numHours=2&maxFlights=100`);
             const data = response.data.flightStatuses;
             const baseOfAirports = response.data.appendix.airports;
-            console.log(response.data)
 
             const newState = [];
             data.forEach((obj)=>{
@@ -40,7 +39,6 @@ class Arrival extends React.Component{
             this.setState({
                 flights:newState
             })
-            console.log(this.state)
 
 
         }catch (e) {

@@ -4,7 +4,7 @@ import classes from './Input.css'
 const Input = (props)=>{
 
 return(
-    <input type={props.type ? props.type : 'text'} value={props.value} onChange={props.onChange} placeholder={props.placeholder}/>
+    <input className={classes.Input} type={props.type ? props.type : 'text'} value={props.value} onChange={props.onChange} placeholder={props.placeholder}/>
 
 )
 

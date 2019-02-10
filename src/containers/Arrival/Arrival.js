@@ -26,7 +26,6 @@ class Arrival extends React.Component{
 
                     }
                 }
-                console.log(obj)
                 // let delayed= false;
                 // if (obj.delays)
                 //     delayed = true

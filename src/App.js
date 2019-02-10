@@ -61,11 +61,12 @@ class App extends Component {
                 const response = await axios.get(`https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/${info}?appId=0d1b066d&appKey=04e621b80655d6d251102e55583f8977&utc=false`)
 
                 const data = response.data;
+                console.log(data)
 
                 this.setState({
                     flight:{
                         time: data.flightStatuses[0].departureDate.dateLocal.slice(11, 16),
-                        city: `${data.appendix.airports[0].city}(${data.flightStatuses[0].arrivalAirportFsCode})`,
+                        city: `${data.appendix.airports[1].city}(${data.flightStatuses[0].arrivalAirportFsCode})`,
                         terminal: data.flightStatuses[0].airportResources.departureTerminal,
                         flightNumber: data.flightStatuses[0].carrierFsCode +data.flightStatuses[0].flightNumber
                     }

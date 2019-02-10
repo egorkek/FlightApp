@@ -24,7 +24,6 @@ class Departure extends React.Component{
 
                     }
                 }
-                console.log(obj)
 
                 newState.push({
                     time: obj.departureDate.dateLocal.slice(11, 16),

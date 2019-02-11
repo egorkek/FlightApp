@@ -8,7 +8,7 @@ import Arrival from "./containers/Arrival/Arrival";
 import Departure from "./containers/Departure/Departure";
 import axios from 'axios'
 import Flight from "./components/flight/Flight";
-function currentDate() {
+function currentDate() { //getting format date
     const date = new Date();
     return `${date.getFullYear()}-${date.getMonth()+1 >= 10 ? date.getMonth()+1 : `0${date.getMonth()+1}`}-${date.getDate()}`
 
@@ -26,6 +26,7 @@ class App extends Component {
 
 
     onChangeInputHandler = (e,option)=>{
+        //changing value of input
         let newState = this.state.myForm;
         newState[option]=e.target.value;
         this.setState({
@@ -34,13 +35,25 @@ class App extends Component {
     }
 
     onButtonClickHandler = async (e)=>{
+        //search flight by flight number
+
         e.preventDefault();
         const info = `${this.state.myForm.carrier}/${this.state.myForm.flightNumber}/${this.state.myForm.type}/${this.state.myForm.date.replace(/[-]/g,'/')}`
         try {
+            //if this flight arrives in airport
 
             if (this.state.myForm.type ==='arr'){
                 const response = await axios.get(`https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/${info}?appId=0d1b066d&appKey=04e621b80655d6d251102e55583f8977&utc=false`)
                 const data = response.data;
+                this.setState({
+                    myForm:{
+                        flightNumber: '',
+                        carrier:'',
+                        date:currentDate(),
+                        type:'arr'
+                    }
+
+                })
 
                 this.setState({
                     flight:{
@@ -58,6 +71,7 @@ class App extends Component {
 
             }
             if (this.state.myForm.type==='dep'){
+                //if flight fly out from airport
                 const response = await axios.get(`https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/${info}?appId=0d1b066d&appKey=04e621b80655d6d251102e55583f8977&utc=false`)
 
                 const data = response.data;
@@ -100,7 +114,7 @@ class App extends Component {
 
 
                 <div className={classes.Links}>
-                    <NavLink to='/arrival' className={this.props.location.pathname==='/arrival'? classes.active : null }>Arrivals</NavLink>
+                    <NavLink to='/arrival' onClick={()=>{this.setState({gettedFlight: false})}} className={this.props.location.pathname==='/arrival'? classes.active : null }>Arrivals</NavLink>
                     <NavLink to='/departure' className={this.props.location.pathname==='/departure'? classes.active : null}>Departure</NavLink>
                 </div>
                 {this.state.gettedFlight ?
@@ -116,6 +130,7 @@ class App extends Component {
                 </Switch>
 
             </div>
+
         </Layout>
 
 

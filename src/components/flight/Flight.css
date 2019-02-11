@@ -27,6 +27,7 @@
     }
 
 }
-.Flight .Delayed{
-    background: red;
+.Delayed{
+    background: rgba(255, 0, 0, 0.2);
+
 }

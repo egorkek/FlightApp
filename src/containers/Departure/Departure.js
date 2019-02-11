@@ -9,6 +9,7 @@ class Departure extends React.Component{
 
     }
     async getFlights (time){
+        //getting flights from api
         try {
             const response = await axios.get(`https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/VKO/dep/${time}?appId=0d1b066d&appKey=04e621b80655d6d251102e55583f8977&utc=false&numHours=2&maxFlights=100`);
             const data = response.data.flightStatuses;
